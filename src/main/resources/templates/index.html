@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SMS Blast</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2 class="text-center">SMS form</h2>
+  <div id="success-msg" th:if="${sendSuccess}" class="ui-icon-alert" >
+    Message have sent successfully</div>
+  <div id="error-msg" th:if="${sendError}" class="ui-icon-alert">
+    Something bad happens!Try again!!
+  </div>
+  <form class="form-horizontal" method="post" action="#" th:action="@{/sendSms}" th:object="${smsReq}">
+    <div class="form-group">
+      <label class="control-label col-sm-2"  for="mobile">Mobile Number:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" th:field="*{ph_no}" id="mobile" placeholder="Enter mobile number" name="mobile">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="message">Message:</label>
+      <div class="col-sm-10">
+        <textarea name="message" class="form-control" th:field="*{message}" placeholder="Enter message"></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" name="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
