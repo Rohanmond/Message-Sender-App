@@ -12,7 +12,7 @@ public class TwilioSmsSender implements SmsSender{
         if(isPhoneNumberValid(smsReq.getPh_no())){
        MessageCreator creator= Message.creator(
                 new PhoneNumber(smsReq.getPh_no()),
-                new PhoneNumber("+19092459674"),
+                new PhoneNumber("###DEMO_PHNO####"),
                 smsReq.getMessage()
         );
        creator.create(); return true;}
